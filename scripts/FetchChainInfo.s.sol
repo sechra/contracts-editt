@@ -41,7 +41,7 @@ contract FetchChainInfoInput {
     address internal _systemConfigProxy;
     address internal _l1StandardBridgeProxy;
 
-    function set(bytes4 _sel, address _addr) public {
+    function set(bytes4 _sel, address _addr) private {
         require(_addr != address(0), "FetchChainInfoInput: cannot set zero address");
         if (_sel == this.systemConfigProxy.selector) _systemConfigProxy = _addr;
         else if (_sel == this.l1StandardBridgeProxy.selector) _l1StandardBridgeProxy = _addr;
